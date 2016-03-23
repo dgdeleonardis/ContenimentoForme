@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Java_ContenimentoForme">
+  <ClassDiagramComponents>
+    <Class name="BoundingBox" package="" visibility="public" xPosition="20.0" yPosition="35.0">
+      <Fields>
+        <Field name="xMin" type="double" visibility="private"/>
+        <Field name="xMax" type="double" visibility="private"/>
+        <Field name="yMin" type="double" visibility="private"/>
+        <Field name="yMax" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="xMin"/>
+          <Argument type="double" name="xMax"/>
+          <Argument type="double" name="yMin"/>
+          <Argument type="double" name="yMax"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getXMin" returnType="double" visibility="public"/>
+        <Method name="getXMax" returnType="double" visibility="public"/>
+        <Method name="getYMin" returnType="double" visibility="public"/>
+        <Method name="getYMax" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cerchio" package="" visibility="public" xPosition="308.0" yPosition="392.0">
+      <Fields>
+        <Field name="centro" type="Punto" visibility="private"/>
+        <Field name="raggio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="Punto" name="centro"/>
+          <Argument type="double" name="raggio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCentro" returnType="Punto" visibility="public"/>
+        <Method name="getRaggio" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Forma" package="" visibility="public" isAbstract="true" xPosition="574.0" yPosition="35.0">
+      <Fields>
+        <Field name="id" type="String" visibility="protected"/>
+        <Field name="bb" type="BoundingBox" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="contiene" returnType="boolean" visibility="public">
+          <Argument type="Forma" name="forma"/>
+        </Method>
+        <Method name="getId" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Input" package="" visibility="public" xPosition="1173.0" yPosition="354.0">
+      <Fields>
+        <Field name="flag" type="boolean" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="isFlag" returnType="boolean" visibility="public" isStatic="true"/>
+        <Method name="resetFlag" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="readString" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="readInt" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="readFloat" returnType="float" visibility="public" isStatic="true"/>
+        <Method name="readDouble" returnType="double" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="1160.0" yPosition="206.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="" visibility="public" xPosition="1011.0" yPosition="21.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="menu" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="aggiungiForma" returnType="void" visibility="public" isStatic="true">
+          <Argument type="ArrayList&lt;Forma&gt;" name="array"/>
+        </Method>
+        <Method name="verificaContenimento" returnType="void" visibility="public" isStatic="true">
+          <Argument type="ArrayList&lt;Forma&gt;" name="array"/>
+        </Method>
+        <Method name="visualizzaDati" returnType="void" visibility="public" isStatic="true">
+          <Argument type="ArrayList&lt;Forma&gt;" name="array"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PoligonoRegolare" package="" visibility="public" xPosition="694.0" yPosition="354.0">
+      <Fields>
+        <Field name="centro" type="Punto" visibility="private"/>
+        <Field name="lato" type="double" visibility="private"/>
+        <Field name="raggio" type="double" visibility="private"/>
+        <Field name="vertici" type="Punto[]" visibility="private"/>
+        <Field name="nLati" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="Punto" name="centro"/>
+          <Argument type="double" name="lato"/>
+          <Argument type="int" name="nLati"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCentro" returnType="Punto" visibility="public"/>
+        <Method name="getRaggio" returnType="double" visibility="public"/>
+        <Method name="getVertice" returnType="Punto" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Punto" package="" visibility="public" xPosition="558.0" yPosition="677.0">
+      <Fields>
+        <Field name="x" type="double" visibility="private"/>
+        <Field name="y" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="x"/>
+          <Argument type="double" name="y"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getX" returnType="double" visibility="public"/>
+        <Method name="getY" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="centro" source="PoligonoRegolare" target="Punto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bb" source="Forma" target="BoundingBox" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation source="PoligonoRegolare" target="Punto" sourceCardinality="1..1" targetCardinality="1..*"/>
+    <IsRelation name="is" source="Cerchio" target="Forma"/>
+    <UseRelation source="Forma" target="Forma" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Menu" target="Forma" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="centro" source="Cerchio" target="Punto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="PoligonoRegolare" target="Forma"/>
+    <UseRelation source="Cerchio" target="Punto" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
